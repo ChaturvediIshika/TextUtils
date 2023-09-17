@@ -14,6 +14,20 @@ const TextForm = (props) => {
     setText(newText);
   }
 
+  const handleTitClick=()=>{
+    console.log("Title case button clicked");
+    let str=text.toLowerCase().split(' ');
+    for(let i=0;i<str.length;i++){
+      str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
+    }
+    let newText=str.join(' ');
+    setText(newText);
+  }
+
+  const handleClearClick=()=>{
+    setText("");
+  }
+
   const handleOnChange=(event)=>{
     console.log("on Change handled");
     setText(event.target.value);
@@ -30,6 +44,8 @@ const TextForm = (props) => {
           </div>
           <button className="btn btn-primary mx-2" onClick={handleUpClick}>Convert To UpperCase</button>
           <button className="btn btn-primary mx-2" onClick={handleLowClick}>Convert To LowerCase</button>
+          <button className="btn btn-primary mx-2" onClick={handleTitClick}>Convert To TitleCase</button>
+          <button className="btn btn-primary mx-2" onClick={handleClearClick}>Clear</button>
       </div>
       <div className="container my-4">
         <h1>Your Text Summary</h1>
